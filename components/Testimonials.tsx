@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react'
 
 export default function TestimonialsSection() {
   const [isVisible, setIsVisible] = useState(false)
-  const [activeCard, setActiveCard] = useState(null)
-
+  const [activeCard, setActiveCard] = useState<number | null>(null)
   useEffect(() => {
     setIsVisible(true)
   }, [])
