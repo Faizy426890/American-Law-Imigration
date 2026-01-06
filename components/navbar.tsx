@@ -215,8 +215,8 @@ export default function Navbar() {
         }
 
          .cta-button {
-          background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-          color: white;
+          background: linear-gradient(135deg, #f5bc00 0%, #f5bc00 100%);
+          color: black;
           padding: 16px 32px;
           border-radius: 12px;
           font-weight: 600;
@@ -231,7 +231,7 @@ export default function Navbar() {
 
         .cta-button:hover {
           transform: translateY(-2px);
-          box-shadow: 0 6px 25px rgba(12, 179, 234, 0.35);
+          box-shadow: 0 6px 25px rgba(234, 223, 12, 0.35);
         }
 
         /* Mobile Menu Toggle */
