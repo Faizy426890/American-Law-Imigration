@@ -74,7 +74,7 @@ export default function Navbar() {
         .logo {
           font-size: 18px;
           font-weight: 700;
-          color: #1e40af;
+          color: #f5bc00;
           text-decoration: none;
           display: flex;
           align-items: center;
@@ -110,7 +110,7 @@ export default function Navbar() {
         }
 
         .nav-links a:hover {
-          color: #1e40af;
+          color: #f5bc00;
         }
 
         /* Services Dropdown */
@@ -133,7 +133,7 @@ export default function Navbar() {
 
         .services-link:hover,
         .visa-categories-main-link:hover {
-          color: #1e40af;
+          color: #f5bc00;
         }
 
         .services-link svg,
@@ -146,7 +146,7 @@ export default function Navbar() {
         }
 
         .services-dropdown:hover .services-link {
-          color: #1e40af;
+          color: #f5bc00;
         }
 
         /* Visa Categories Dropdown */
@@ -159,7 +159,7 @@ export default function Navbar() {
         }
 
         .visa-categories-dropdown:hover .visa-categories-main-link {
-          color: #1e40af;
+          color: #f5bc00;
         }
 
         .services-menu,
@@ -210,7 +210,7 @@ export default function Navbar() {
         .services-menu a:hover,
         .visa-categories-main-menu a:hover {
           background: #f8fafc;
-          color: #1e40af;
+          color: #f5bc00;
           padding-left: 20px;
         }
 
@@ -357,7 +357,7 @@ export default function Navbar() {
         .sidebar-services-toggle:hover,
         .sidebar-visa-categories-toggle:hover {
           background: #f8fafc;
-          color: #1e40af;
+          color: #f5bc00;
           padding-left: 30px;
         }
 
@@ -403,7 +403,7 @@ export default function Navbar() {
 
         .sidebar-services-menu a:hover,
         .sidebar-visa-categories-menu a:hover {
-          color: #1e40af;
+          color: #f5bc00;
           padding-left: 50px;
         }
 
@@ -439,7 +439,7 @@ export default function Navbar() {
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <div className="nav-container">
           <Link href="/" className="logo">
-            American <span>LawyerS</span> <span style={{ color: "#1e40af" }}>iMIGRATION</span>
+            American <span>LawyerS</span> <span style={{ color: "#f5bc00" }}>iMIGRATION</span>
           </Link>
 
           <ul className="nav-links">
@@ -498,7 +498,7 @@ export default function Navbar() {
       <div className={`mobile-sidebar ${isSidebarOpen ? "active" : ""}`}>
         <div className="sidebar-header">
           <div className="logo">
-            American <span>LawyerS</span> <span style={{ color: "#1e40af" }}>iMIGRATION</span>
+            American <span>LawyerS</span> <span style={{ color: "#f5bc00" }}>iMIGRATION</span>
           </div>
           <button className="sidebar-close" onClick={() => setIsSidebarOpen(false)}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
