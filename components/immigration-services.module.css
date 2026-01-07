@@ -356,7 +356,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(245, 188, 0, 0.15) 0%, transparent 60%);
+  background: radial-gradient(circle at 30% 50%, rgba(14, 14, 14, 0.15) 0%, transparent 60%);
   pointer-events: none;
 }
 
