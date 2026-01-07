@@ -1,0 +1,564 @@
+/* Page Wrapper */
+.pageWrapper {
+  min-height: 100vh;
+  background: #ffffff;
+}
+
+/* Hero Section */
+.heroSection {
+  background: #262626;
+  padding: 100px 40px 80px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(245, 188, 0, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.heroContent {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.heroBadge {
+  display: inline-block;
+  background: rgba(245, 188, 0, 0.1);
+  color: #f5bc00;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(245, 188, 0, 0.3);
+}
+
+.heroTitle {
+  font-size: 56px;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  letter-spacing: -1px;
+}
+
+.heroDescription {
+  font-size: 19px;
+  color: #e5e5e5;
+  max-width: 700px;
+  margin: 0 auto 40px;
+  line-height: 1.6;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.heroButtonPrimary {
+  background: #f5bc00;
+  color: #000000;
+  padding: 16px 36px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.heroButtonPrimary:hover {
+  background: #d4a500;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245, 188, 0, 0.3);
+}
+
+.heroButtonSecondary {
+  background: transparent;
+  color: #ffffff;
+  padding: 16px 36px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.heroButtonSecondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #f5bc00;
+  color: #f5bc00;
+}
+
+/* Stats Section */
+.statsSection {
+  background: #ffffff;
+  padding: 60px 40px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.statsContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 44px;
+  font-weight: 700;
+  color: #f5bc00;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.statLabel {
+  font-size: 15px;
+  color: #666666;
+  font-weight: 500;
+}
+
+/* Services Section */
+.visaTypesSection {
+  background: #ffffff;
+  padding: 100px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.visaTypesSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+  pointer-events: none;
+}
+
+.visaContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.sectionSubtitle {
+  color: #f5bc00;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 44px;
+  font-weight: 700;
+  color: #000000;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.sectionDescription {
+  font-size: 17px;
+  color: #666666;
+  max-width: 650px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.visaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 28px;
+}
+
+.visaCard {
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.visaCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #f5bc00 0%, #d4a500 100%);
+  z-index: 2;
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.visaCard:hover::before {
+  transform: scaleX(1);
+}
+
+.visaCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12), 0 8px 16px rgba(0, 0, 0, 0.08);
+  border-color: rgba(245, 188, 0, 0.3);
+}
+
+.visaImageContainer {
+  position: relative;
+  width: 100%;
+  height: 240px;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+}
+
+.visaImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: brightness(0.95) contrast(1.05);
+}
+
+.visaCard:hover .visaImage {
+  transform: scale(1.1);
+  filter: brightness(1) contrast(1.1);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.visaCard:hover .imageOverlay {
+  opacity: 1;
+}
+
+.visaContent {
+  flex: 1;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.visaHeaderContent {
+  flex: 1;
+  margin-bottom: 16px;
+}
+
+.visaTitle {
+  font-size: 20px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.visaDescription {
+  font-size: 14px;
+  color: #666666;
+  line-height: 1.5;
+}
+
+.servicesList {
+  list-style: none;
+  margin: 20px 0 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.serviceItem {
+  padding: 11px 0;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 14px;
+  color: #666666;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.2s ease;
+}
+
+.serviceItem:last-child {
+  border-bottom: none;
+}
+
+.serviceItem::before {
+  content: '✓';
+  color: #f5bc00;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.serviceItem:hover {
+  color: #000000;
+}
+
+/* CTA Section */
+.ctaBanner {
+  margin-top: 80px;
+  background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+  border-radius: 24px;
+  padding: 60px 50px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.ctaBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 50%, rgba(245, 188, 0, 0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.ctaBanner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(245, 188, 0, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.ctaContent {
+  position: relative;
+  z-index: 1;
+}
+
+.ctaTitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 14px;
+  letter-spacing: -0.5px;
+}
+
+.ctaText {
+  font-size: 16px;
+  color: #e5e5e5;
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+.ctaButton {
+  background: #f5bc00;
+  color: #000000;
+  padding: 14px 40px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  font-family: inherit;
+}
+
+.ctaButton:hover {
+  background: #d4a500;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(245, 188, 0, 0.3);
+}
+
+/* Footer */
+.footer {
+  background: #000000;
+  color: #e5e5e5;
+  padding: 60px 40px 30px;
+}
+
+.footerContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 50px;
+  margin-bottom: 50px;
+}
+
+.footerColumn h3 {
+  color: #f5bc00;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.footerLinks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerLinks a {
+  color: #e5e5e5;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.2s ease;
+}
+
+.footerLinks a:hover {
+  color: #f5bc00;
+}
+
+.footerBottom {
+  border-top: 1px solid #333333;
+  padding-top: 30px;
+  text-align: center;
+  font-size: 14px;
+  color: #999999;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .heroTitle {
+    font-size: 48px;
+  }
+
+  .visaGrid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 80px 20px 60px;
+  }
+
+  .heroTitle {
+    font-size: 36px;
+  }
+
+  .heroDescription {
+    font-size: 17px;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .heroButtonPrimary,
+  .heroButtonSecondary {
+    width: 100%;
+  }
+
+  .statsContainer {
+    gap: 30px;
+  }
+
+  .statNumber {
+    font-size: 36px;
+  }
+
+  .visaTypesSection {
+    padding: 80px 20px;
+  }
+
+  .sectionHeader {
+    margin-bottom: 50px;
+  }
+
+  .sectionTitle {
+    font-size: 32px;
+  }
+
+  .sectionDescription {
+    font-size: 16px;
+  }
+
+  .visaGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .visaContent {
+    padding: 24px 20px;
+  }
+
+  .visaImageContainer {
+    height: 200px;
+  }
+
+  .ctaBanner {
+    padding: 40px 24px;
+    margin-top: 60px;
+  }
+
+  .ctaTitle {
+    font-size: 28px;
+  }
+
+  .ctaText {
+    font-size: 15px;
+  }
+
+  .footerGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}

@@ -2,14 +2,15 @@ import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section" 
 import TestimonialsSection from "@/components/Testimonials" 
 import VisaTypesSection from "@/components/visa-types"
-
+import Footer from "@/components/footer"
 export default function Home() {
   return (
     <main>
       <Navbar />
       <HeroSection /> 
       <TestimonialsSection/> 
-      <VisaTypesSection/>
+      <VisaTypesSection/> 
+      <Footer/>
     </main>
   )
 }
