@@ -1,13 +1,40 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from './hero-section.module.css'
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     setIsVisible(true)
+    
+    // Force video to play on mount
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.log('Autoplay prevented:', error)
+      })
+    }
+  }, [])
+
+  // Additional play attempt on user interaction
+  useEffect(() => {
+    const handleInteraction = () => {
+      if (videoRef.current && videoRef.current.paused) {
+        videoRef.current.play().catch(error => {
+          console.log('Play on interaction failed:', error)
+        })
+      }
+    }
+
+    document.addEventListener('touchstart', handleInteraction, { once: true })
+    document.addEventListener('click', handleInteraction, { once: true })
+
+    return () => {
+      document.removeEventListener('touchstart', handleInteraction)
+      document.removeEventListener('click', handleInteraction)
+    }
   }, [])
 
   return (
@@ -20,8 +47,11 @@ export default function HeroSection() {
 
       <div className={styles.heroContainer}>
         <div 
-          className={styles.heroContent} 
-          style={{ opacity: isVisible ? 1 : 0, animation: isVisible ? 'fadeInUp 1s ease-out' : 'none' }}
+          className={styles.heroContent}
+          style={{ 
+            opacity: isVisible ? 1 : 0, 
+            animation: isVisible ? 'fadeInUp 1s ease-out forwards' : 'none' 
+          }}
         >
           <div className={styles.heroBadge}>
             <div className={styles.badgeDot}></div>
@@ -71,15 +101,20 @@ export default function HeroSection() {
         </div>
 
         <div 
-          className={styles.heroImage} 
-          style={{ opacity: isVisible ? 1 : 0, animation: isVisible ? 'fadeIn 1.2s ease-out 0.3s both' : 'none' }}
+          className={styles.heroImage}
+          style={{ 
+            opacity: isVisible ? 1 : 0, 
+            animation: isVisible ? 'fadeIn 1.2s ease-out 0.3s forwards' : 'none' 
+          }}
         >
           <div className={styles.imageWrapper}>
             <video 
+              ref={videoRef}
               autoPlay 
               loop 
               muted 
               playsInline
+              preload="auto"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             >
               <source src="https://res.cloudinary.com/diml90c1y/video/upload/v1767732989/Website_Video_1_vs7jjx.mp4" type="video/mp4" />
