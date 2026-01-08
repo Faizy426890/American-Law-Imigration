@@ -1,10 +1,12 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter } from "next/navigation"
 import styles from './immigration-services.module.css'
 
 export default function ImmigrationServicesPage() {
   const [expandedCard, setExpandedCard] = useState<number | null>(null)
+  const router = useRouter()
 
   const visaTypes = [
     {
@@ -75,7 +77,7 @@ export default function ImmigrationServicesPage() {
     {
       title: "Green Card Services",
       description: "For individuals seeking permanent residency in the United States.",
-      image: "https://img.freepik.com/free-photo/medium-shot-woman-working-as-travel-agent_23-2150455603.jpg?semt=ais_hybrid&w=740&q=80",
+      image: "https://img.freepik.com/free-photo/medium-shot-woman-working-as-travel-agent_23-2150455603.jpg",
       services: [
         "Employment-Based Green Cards",
         "Family-Based Green Cards",
@@ -99,34 +101,21 @@ export default function ImmigrationServicesPage() {
           <div className={styles.heroBadge}>Trusted Immigration Attorneys</div>
           <h1 className={styles.heroTitle}>Your Journey to the U.S. Starts Here</h1>
           <p className={styles.heroDescription}>
-            Expert legal guidance for visas, green cards, citizenship, and all immigration matters. We handle the
-            complexity so you can focus on your future.
+            Expert legal guidance for visas, green cards, citizenship, and all immigration matters.
           </p>
           <div className={styles.heroButtons}>
-            <button className={styles.heroButtonPrimary}>Get Started Today</button>
-            <button className={styles.heroButtonSecondary}>Learn More</button>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className={styles.statsSection}>
-        <div className={styles.statsContainer}>
-          <div className={styles.statItem}>
-            <div className={styles.statNumber}>15+</div>
-            <div className={styles.statLabel}>Years of Experience</div>
-          </div>
-          <div className={styles.statItem}>
-            <div className={styles.statNumber}>5,000+</div>
-            <div className={styles.statLabel}>Cases Successfully Handled</div>
-          </div>
-          <div className={styles.statItem}>
-            <div className={styles.statNumber}>98%</div>
-            <div className={styles.statLabel}>Success Rate</div>
-          </div>
-          <div className={styles.statItem}>
-            <div className={styles.statNumber}>50+</div>
-            <div className={styles.statLabel}>Countries Represented</div>
+            <button
+              className={styles.heroButtonPrimary}
+              onClick={() => router.push('/contact')}
+            >
+              Get Started Today
+            </button>
+            <button
+              className={styles.heroButtonSecondary}
+              onClick={() => router.push('/about')}
+            >
+              Learn More
+            </button>
           </div>
         </div>
       </section>
@@ -134,42 +123,29 @@ export default function ImmigrationServicesPage() {
       {/* Services Section */}
       <section className={styles.visaTypesSection}>
         <div className={styles.visaContainer}>
-          <div className={styles.sectionHeader}>
-            <div className={styles.sectionSubtitle}>Our Services</div>
-            <h2 className={styles.sectionTitle}>Immigration Services We Offer</h2>
-            <p className={styles.sectionDescription}>
-              Comprehensive legal solutions for all your U.S. immigration needs, from investment visas to citizenship.
-            </p>
-          </div>
-
           <div className={styles.visaGrid}>
             {visaTypes.map((visa, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={`${styles.visaCard} ${expandedCard === index ? styles.expanded : ""}`}
                 onClick={() => toggleExpand(index)}
-                style={{ cursor: 'pointer' }}
               >
                 <div className={styles.visaImageContainer}>
-                  <img src={visa.image || "/placeholder.svg"} alt={visa.title} className={styles.visaImage} />
+                  <img src={visa.image} alt={visa.title} className={styles.visaImage} />
                   <div className={styles.imageOverlay} />
                 </div>
 
                 <div className={styles.visaContent}>
-                  <div className={styles.visaHeaderContent}>
-                    <h3 className={styles.visaTitle}>{visa.title}</h3>
-                    <p className={styles.visaDescription}>{visa.description}</p>
-                  </div>
+                  <h3 className={styles.visaTitle}>{visa.title}</h3>
+                  <p className={styles.visaDescription}>{visa.description}</p>
 
-                  {visa.services.length > 0 && (
-                    <ul className={styles.servicesList}>
-                      {visa.services.map((service, idx) => (
-                        <li key={idx} className={styles.serviceItem}>
-                          {service}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
+                  <ul className={styles.servicesList}>
+                    {visa.services.map((service, idx) => (
+                      <li key={idx} className={styles.serviceItem}>
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             ))}
@@ -179,17 +155,18 @@ export default function ImmigrationServicesPage() {
             <div className={styles.ctaContent}>
               <h2 className={styles.ctaTitle}>Ready to Start Your Immigration Journey?</h2>
               <p className={styles.ctaText}>
-                Our expert team is ready to guide you through every step of the process. Schedule a consultation today
-                and let us help you navigate your path to success.
+                Schedule a consultation today and let us guide you every step of the way.
               </p>
-              <button className={styles.ctaButton}>Schedule Consultation</button>
+              <button
+                className={styles.ctaButton}
+                onClick={() => router.push('/contact')}
+              >
+                Schedule Consultation
+              </button>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-     
     </div>
   )
 }

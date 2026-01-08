@@ -1,12 +1,14 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import styles from './testimonials-section.module.css'
 
 export default function TestimonialsSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [activeCard, setActiveCard] = useState<number | null>(null)
-  
+  const router = useRouter()
+
   useEffect(() => {
     setIsVisible(true)
   }, [])
@@ -50,9 +52,12 @@ export default function TestimonialsSection() {
       <div className={`${styles.floatingAccent} ${styles.accent2}`}></div>
 
       <div className={styles.testimonialsContainer}>
-        <div 
+        <div
           className={styles.sectionHeader}
-          style={{ opacity: isVisible ? 1 : 0, animation: isVisible ? 'fadeInUp 0.8s ease-out' : 'none' }}
+          style={{
+            opacity: isVisible ? 1 : 0,
+            animation: isVisible ? 'fadeInUp 0.8s ease-out' : 'none'
+          }}
         >
           <div className={styles.sectionBadge}>
             <span className={styles.badgeStar}>★</span>
@@ -68,14 +73,14 @@ export default function TestimonialsSection() {
 
         <div className={styles.testimonialsGrid}>
           {testimonials.map((testimonial, index) => (
-            <div 
+            <div
               key={index}
               className={styles.testimonialCard}
               onMouseEnter={() => setActiveCard(index)}
               onMouseLeave={() => setActiveCard(null)}
             >
               <div className={styles.quoteIcon}>"</div>
-              
+
               <div className={styles.rating}>
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <span key={i} className={styles.star}>★</span>
@@ -102,7 +107,12 @@ export default function TestimonialsSection() {
           <p className={styles.ctaText}>
             Join thousands of satisfied clients who have successfully navigated their immigration process with our expert guidance.
           </p>
-          <button className={styles.ctaButton}>Schedule Your Free Consultation</button>
+          <button
+            className={styles.ctaButton}
+            onClick={() => router.push('/contact')}
+          >
+            Schedule Your Free Consultation
+          </button>
         </div>
       </div>
     </section>

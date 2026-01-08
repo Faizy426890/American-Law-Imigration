@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import styles from "./navbar.module.css"
 
 const visaCategories = [
@@ -53,7 +54,14 @@ export default function Navbar() {
       <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
         <div className={styles.navContainer}>
           <Link href="/" className={styles.logo}>
-            American <span>LawyerS</span> <span style={{ color: "#f5bc00" }}>iMIGRATION</span>
+            <Image 
+              src="https://res.cloudinary.com/diml90c1y/image/upload/v1767834106/My_Post_euv4n2.jpg"
+              alt="American Lawyers Immigration"
+              width={180}
+              height={50}
+              className={styles.logoImage}
+              priority
+            />
           </Link>
 
           <ul className={styles.navLinks}>
@@ -92,8 +100,10 @@ export default function Navbar() {
             <li>
               <Link href="/contact">Contact</Link>
             </li>
-            <li>
-              <button className={styles.ctaButton}>Request a Consultation</button>
+            <li> 
+              <Link href="/contact">
+              <button className={styles.ctaButton}>Request a Consultation</button> 
+              </Link>
             </li>
           </ul>
 
@@ -112,7 +122,13 @@ export default function Navbar() {
       <div className={`${styles.mobileSidebar} ${isSidebarOpen ? styles.active : ""}`}>
         <div className={styles.sidebarHeader}>
           <div className={styles.logo}>
-            American <span>LawyerS</span> <span style={{ color: "#f5bc00" }}>iMIGRATION</span>
+            <Image 
+              src="https://res.cloudinary.com/diml90c1y/image/upload/v1767834106/My_Post_euv4n2.jpg"
+              alt="American Lawyers Immigration"
+              width={150}
+              height={50}
+              className={styles.logoImage}
+            />
           </div>
           <button className={styles.sidebarClose} onClick={() => setIsSidebarOpen(false)}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">

@@ -1,16 +1,17 @@
 "use client"
 
 import { useState, useEffect, useRef } from 'react'
+import { useRouter } from 'next/navigation'
 import styles from './hero-section.module.css'
 
 export default function HeroSection() {
   const [isVisible, setIsVisible] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const router = useRouter()
 
   useEffect(() => {
     setIsVisible(true)
-    
-    // Force video to play on mount
+
     if (videoRef.current) {
       videoRef.current.play().catch(error => {
         console.log('Autoplay prevented:', error)
@@ -18,7 +19,6 @@ export default function HeroSection() {
     }
   }, [])
 
-  // Additional play attempt on user interaction
   useEffect(() => {
     const handleInteraction = () => {
       if (videoRef.current && videoRef.current.paused) {
@@ -46,11 +46,11 @@ export default function HeroSection() {
       </div>
 
       <div className={styles.heroContainer}>
-        <div 
+        <div
           className={styles.heroContent}
-          style={{ 
-            opacity: isVisible ? 1 : 0, 
-            animation: isVisible ? 'fadeInUp 1s ease-out forwards' : 'none' 
+          style={{
+            opacity: isVisible ? 1 : 0,
+            animation: isVisible ? 'fadeInUp 1s ease-out forwards' : 'none'
           }}
         >
           <div className={styles.heroBadge}>
@@ -64,13 +64,13 @@ export default function HeroSection() {
           </h1>
 
           <p className={styles.heroDescription}>
-            From initial consultation to approval, we provide dedicated advocacy 
+            From initial consultation to approval, we provide dedicated advocacy
             to protect your rights and secure your future in the United States.
           </p>
 
           <div className={styles.heroQuote}>
             <p>
-              "From initial consultation to approval, dedicated advocacy to protect 
+              "From initial consultation to approval, dedicated advocacy to protect
               your rights and your future."
             </p>
             <cite>
@@ -80,8 +80,19 @@ export default function HeroSection() {
           </div>
 
           <div className={styles.heroCta}>
-            <button className={styles.ctaButton}>Request a Consultation</button>
-            <button className={styles.secondaryButton}>Learn More</button>
+            <button
+              className={styles.ctaButton}
+              onClick={() => router.push('/contact')}
+            >
+              Request a Consultation
+            </button>
+
+            <button
+              className={styles.secondaryButton}
+              onClick={() => router.push('/about')}
+            >
+              Learn More
+            </button>
           </div>
 
           <div className={styles.statsGrid}>
@@ -100,25 +111,27 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div 
+        <div
           className={styles.heroImage}
-          style={{ 
-            opacity: isVisible ? 1 : 0, 
-            animation: isVisible ? 'fadeIn 1.2s ease-out 0.3s forwards' : 'none' 
+          style={{
+            opacity: isVisible ? 1 : 0,
+            animation: isVisible ? 'fadeIn 1.2s ease-out 0.3s forwards' : 'none'
           }}
         >
           <div className={styles.imageWrapper}>
-            <video 
+            <video
               ref={videoRef}
-              autoPlay 
-              loop 
-              muted 
+              autoPlay
+              loop
+              muted
               playsInline
               preload="auto"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             >
-              <source src="https://res.cloudinary.com/diml90c1y/video/upload/v1767732989/Website_Video_1_vs7jjx.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
+              <source
+                src="https://res.cloudinary.com/diml90c1y/video/upload/v1767732989/Website_Video_1_vs7jjx.mp4"
+                type="video/mp4"
+              />
             </video>
           </div>
         </div>
