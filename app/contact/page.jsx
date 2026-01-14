@@ -210,7 +210,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Phone Number</label>
+                  <label className="block text-sm font-bold text-gray-800 mb-2">Phone Number</label>
                   <input 
                     type="tel"
                     name="phone"
