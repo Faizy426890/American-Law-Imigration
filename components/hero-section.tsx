@@ -68,17 +68,7 @@ export default function HeroSection() {
             to protect your rights and secure your future in the United States.
           </p>
 
-          <div className={styles.heroQuote}>
-            <p>
-              "From initial consultation to approval, dedicated advocacy to protect
-              your rights and your future."
-            </p>
-            <cite>
-              Viktor Vico
-              <span className={styles.stars}>★★★★★</span>
-            </cite>
-          </div>
-
+         
           <div className={styles.heroCta}>
             <button
               className={styles.ctaButton}
@@ -129,7 +119,7 @@ export default function HeroSection() {
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             >
               <source
-                src="https://res.cloudinary.com/diml90c1y/video/upload/v1767732989/Website_Video_1_vs7jjx.mp4"
+                src="https://res.cloudinary.com/diml90c1y/video/upload/v1768411507/Website_Video_670_x_608_px_l7c0n4.mp4"
                 type="video/mp4"
               />
             </video>

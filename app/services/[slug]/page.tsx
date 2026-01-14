@@ -161,9 +161,11 @@ export default async function ServicePage(props: ServicePageProps) {
                   </div>
                 </div>
 
-                <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
-                  Schedule Consultation
-                </button>
+                <Link href="/contact">
+                  <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-4 rounded-lg transition-colors duration-200">
+                    Schedule Consultation
+                  </button>
+                </Link>
               </div>
 
               {/* Contact Card */}
@@ -172,9 +174,11 @@ export default async function ServicePage(props: ServicePageProps) {
                 <p className="text-gray-300 text-sm mb-4 leading-relaxed">
                   Our experienced immigration attorneys are here to help you navigate the process
                 </p>
-                <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200">
-                  Contact Us
-                </button>
+                <Link href="/contact">
+                  <button className="w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200">
+                    Contact Us
+                  </button>
+                </Link>
               </div>
 
               {/* Trust Indicators */}
@@ -211,9 +215,11 @@ export default async function ServicePage(props: ServicePageProps) {
             Schedule a consultation with our immigration law experts to discuss your case and explore your options
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
-              Request Consultation
-            </button>
+            <Link href="/contact">
+              <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 px-8 rounded-lg transition-colors duration-200">
+                Request Consultation
+              </button>
+            </Link>
             <Link href="/services">
               <button className="border-2 border-white text-white hover:bg-white hover:text-black font-semibold py-3 px-8 rounded-lg transition-all duration-200">
                 View All Services

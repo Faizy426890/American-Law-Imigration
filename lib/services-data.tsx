@@ -224,7 +224,7 @@ export const servicesData = {
     description: "Treaty investor visa for business owners and executives",
     shortDescription: "Invest and manage your business in the U.S.",
     image:
-      "https://images.pexels.com/photos/373905/pexels-photo-373905.jpeg", // business investor concept
+      "https://res.cloudinary.com/diml90c1y/image/upload/v1768415748/pexels-fauxels-3182759_fmbwwl.jpg", // business investor concept
     overview: `The E-2 visa is available to nationals of countries with which the U.S. maintains a treaty. It allows qualified investors to enter and work in the U.S. to manage a business enterprise in which they have invested substantial capital.` + ` E-2 visas are for treaty investor categories. :contentReference[oaicite:1]{index=1}`,
     features: [
       "Treaty country verification",

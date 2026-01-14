@@ -99,7 +99,7 @@
 }
 
 .badgeStar {
-  color: #f5bc00;
+  color: #000000;
   font-size: 16px;
 }
 
@@ -163,7 +163,7 @@
 
 .testimonialCard:hover {
   transform: translateY(-8px);
-  border-color: #f5bc00;
+  border-color: #f0f0f0;
   box-shadow: 0 12px 40px rgba(237, 206, 104, 0.25);
 }
 
@@ -188,7 +188,7 @@
 .quoteIcon {
   width: 50px;
   height: 50px;
-  background: linear-gradient(135deg, #f5bc00, #ffd966);
+  background: linear-gradient(135deg, #000000, #000000);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -196,7 +196,7 @@
   font-size: 24px;
   color: #ffffff;
   margin-bottom: 20px;
-  box-shadow: 0 4px 15px rgba(237, 206, 104, 0.3);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .rating {

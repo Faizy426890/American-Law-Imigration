@@ -96,29 +96,7 @@ export default function ImmigrationServicesPage() {
   return (
     <div className={styles.pageWrapper}>
       {/* Hero Section */}
-      <section className={styles.heroSection}>
-        <div className={styles.heroContent}>
-          <div className={styles.heroBadge}>Trusted Immigration Attorneys</div>
-          <h1 className={styles.heroTitle}>Your Journey to the U.S. Starts Here</h1>
-          <p className={styles.heroDescription}>
-            Expert legal guidance for visas, green cards, citizenship, and all immigration matters.
-          </p>
-          <div className={styles.heroButtons}>
-            <button
-              className={styles.heroButtonPrimary}
-              onClick={() => router.push('/contact')}
-            >
-              Get Started Today
-            </button>
-            <button
-              className={styles.heroButtonSecondary}
-              onClick={() => router.push('/about')}
-            >
-              Learn More
-            </button>
-          </div>
-        </div>
-      </section>
+    
 
       {/* Services Section */}
       <section className={styles.visaTypesSection}>
