@@ -1,6 +1,7 @@
 "use client"
-import { useState } from 'react'
-
+import { useState } from 'react' 
+import Navbar from '@/components/navbar'
+import Footer from '@/components/footer'
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     firstName: '',
@@ -71,7 +72,9 @@ export default function ContactPage() {
     })
   }
 
-  return ( 
+  return (  
+    <> 
+    <Navbar/>
     <main className="min-h-screen bg-white">
       {/* Toast Notification */}
       <div className={`fixed top-8 right-8 z-50 transform transition-all duration-500 ease-out ${
@@ -419,7 +422,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-3xl md:text-4xl font-black text-gray-900 mb-2">Visit Our Office</h3>
-                  <p className="text-gray-600 font-medium">We're conveniently located in the heart of New York City</p>
+                  <p className="text-gray-600 font-medium">We're conveniently located in the heart of Texas</p>
                 </div>
               </div>
               
@@ -652,6 +655,8 @@ export default function ContactPage() {
           </div>
         </div>
       </footer>
-    </main>
+    </main>  
+    <Footer/>
+    </>
   )
 }
