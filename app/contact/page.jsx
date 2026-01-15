@@ -393,18 +393,7 @@ export default function ContactPage() {
             </div>
 
             {/* Emergency Contact */}
-            <div className="bg-black rounded-3xl shadow-2xl p-8 text-white border-2 border-yellow-400">
-              <h4 className="text-xl font-black mb-3">Need Urgent Help?</h4>
-              <p className="text-sm mb-6 text-gray-400">
-                For urgent immigration matters, call our emergency hotline
-              </p>
-              <a 
-                href="tel:+15551234567"
-                className="block w-full text-center py-4 bg-white hover:bg-gray-100 text-black font-bold rounded-xl transition-all duration-300 transform hover:scale-105"
-              >
-                Call Emergency Line
-              </a>
-            </div>
+         
           </div>
         </div>
 
