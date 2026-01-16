@@ -232,15 +232,7 @@ export default function TestimonialsSection() {
           ))}
         </div>
 
-        <div style={styles.ctaSection}>
-          <h3 style={styles.ctaTitle}>Ready to Start Your Journey?</h3>
-          <p style={styles.ctaText}>
-            Join thousands of satisfied clients who have successfully navigated their immigration process with our expert guidance.
-          </p>
-          <button style={styles.ctaButton}>
-            Schedule Your Free Consultation
-          </button>
-        </div>
+    
       </div>
     </section>
   )

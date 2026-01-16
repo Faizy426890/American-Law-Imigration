@@ -55,7 +55,7 @@ export default function HeroSection() {
         >
           <div className={styles.heroBadge}>
             <div className={styles.badgeDot}></div>
-            Trusted Immigration Experts
+            Trusted Immigration Lawyers
           </div>
 
           <h1>

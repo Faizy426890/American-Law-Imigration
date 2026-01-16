@@ -53,20 +53,7 @@ const AboutSection = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 bg-yellow-400/10 rounded-2xl border-2 border-yellow-400/30">
-              <div className="text-5xl md:text-6xl font-black text-yellow-400 mb-3">98%</div>
-              <div className="text-sm md:text-base text-gray-400 uppercase tracking-wider font-semibold">Success Rate</div>
-            </div>
-            <div className="text-center p-8 bg-yellow-400/10 rounded-2xl border-2 border-yellow-400/30">
-              <div className="text-5xl md:text-6xl font-black text-yellow-400 mb-3">15+</div>
-              <div className="text-sm md:text-base text-gray-400 uppercase tracking-wider font-semibold">Years Experience</div>
-            </div>
-            <div className="text-center p-8 bg-yellow-400/10 rounded-2xl border-2 border-yellow-400/30">
-              <div className="text-5xl md:text-6xl font-black text-yellow-400 mb-3">5000+</div>
-              <div className="text-sm md:text-base text-gray-400 uppercase tracking-wider font-semibold">Cases Won</div>
-            </div>
-          </div>
+        
         </div>
       </div>
 
