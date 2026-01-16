@@ -85,20 +85,7 @@ export default function HeroSection() {
             </button>
           </div>
 
-          <div className={styles.statsGrid}>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>98%</div>
-              <div className={styles.statLabel}>Success Rate</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>15+</div>
-              <div className={styles.statLabel}>Years Experience</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statNumber}>5000+</div>
-              <div className={styles.statLabel}>Cases Handled</div>
-            </div>
-          </div>
+       
         </div>
 
         <div
