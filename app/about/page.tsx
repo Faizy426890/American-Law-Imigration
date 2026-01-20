@@ -190,14 +190,7 @@ const AboutSection = () => {
             </p>
           </div>
 
-          <div className="bg-white p-8 md:p-10 rounded-3xl shadow-lg border-3 border-gray-100 hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-3 transition-all duration-500">
-            <div className="text-5xl md:text-6xl mb-6">🎯</div>
-            <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-4">Proven Track Record</h3>
-            <p className="text-gray-600 leading-relaxed">
-              With a 98% success rate and thousands of satisfied clients, we have the experience and expertise to 
-              handle your case.
-            </p>
-          </div>
+          
 
           <div className="bg-white p-8 md:p-10 rounded-3xl shadow-lg border-3 border-gray-100 hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-3 transition-all duration-500">
             <div className="text-5xl md:text-6xl mb-6">💬</div>

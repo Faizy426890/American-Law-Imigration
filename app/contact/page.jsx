@@ -316,7 +316,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-bold mb-1">Email</p>
-                    <p className="text-gray-400 text-sm">info@americanlawyers.com</p>
+                    <p className="text-gray-400 text-sm">info@khanlegalgroup.com</p>
                   </div>
                 </div>
 
@@ -513,10 +513,6 @@ export default function ContactPage() {
               answer: "Fees vary based on case complexity and service type. We offer transparent pricing with no hidden fees. During your consultation, we'll provide a detailed breakdown of all costs."
             },
             {
-              question: "What's your success rate?",
-              answer: "We maintain a success rate above 95% across all visa categories. Our experienced attorneys use proven strategies tailored to each client's unique situation."
-            },
-            {
               question: "Do you offer payment plans?",
               answer: "Yes, we offer flexible payment plans for most services. We believe financial constraints shouldn't prevent you from accessing quality legal representation."
             },
@@ -547,62 +543,7 @@ export default function ContactPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative bg-black py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <div className="absolute top-0 right-1/4 w-96 h-96 bg-yellow-400/10 rounded-full mix-blend-multiply filter blur-3xl"></div>
-          <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-white/5 rounded-full mix-blend-multiply filter blur-3xl"></div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-white mb-6">
-            Ready to Start Your <span className="text-yellow-400">Journey?</span>
-          </h2>
-          
-          <p className="text-xl text-gray-400 mb-10 max-w-3xl mx-auto">
-            Contact us today for a free consultation. Let's discuss how we can help you achieve your American dream.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <a 
-              href="tel:+15551234567"
-              className="px-10 py-5 bg-white hover:bg-gray-100 text-black font-bold text-lg rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-              </svg>
-              Call Now: +1 (555) 123-4567
-            </a>
-            
-            <button 
-              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-              className="px-10 py-5 bg-transparent border-2 border-white text-white hover:bg-white hover:text-black font-bold text-lg rounded-xl transform hover:scale-105 transition-all duration-300"
-            >
-              Back to Contact Form
-            </button>
-          </div>
-          
-          <div className="mt-16 pt-10 border-t border-gray-800">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-black text-yellow-400 mb-2">500+</div>
-                <div className="text-gray-400 font-medium">Cases Handled</div>
-              </div>
-              <div>
-                <div className="text-4xl font-black text-yellow-400 mb-2">95%</div>
-                <div className="text-gray-400 font-medium">Success Rate</div>
-              </div>
-              <div>
-                <div className="text-4xl font-black text-yellow-400 mb-2">24h</div>
-                <div className="text-gray-400 font-medium">Response Time</div>
-              </div>
-              <div>
-                <div className="text-4xl font-black text-yellow-400 mb-2">15+</div>
-                <div className="text-gray-400 font-medium">Years Experience</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+ 
 
       {/* Footer */}
       <footer className="bg-white border-t border-gray-200 py-12">
