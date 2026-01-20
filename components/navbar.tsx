@@ -16,14 +16,14 @@ const visaCategories = [
   "Family-Based Immigration",
   "Adjustment of Status",
   "Consular Processing",
+  "Visa Evaluation", // Added from Services
+  "Immigration Consultations", // Added from Services
 ]
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
-  const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isVisaCategoriesOpen, setIsVisaCategoriesOpen] = useState(false)
-  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false)
   const [isMobileVisaCategoriesOpen, setIsMobileVisaCategoriesOpen] = useState(false)
 
   useEffect(() => {
@@ -65,27 +65,22 @@ export default function Navbar() {
           </Link>
 
           <ul className={styles.navLinks}>
-            <li className={styles.servicesDropdown}>
-              <div className={styles.servicesLink}>
-                Services
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                  <path d="M6 9L1 4h10z" />
-                </svg>
-              </div>
-              <div className={styles.servicesMenu}>
-                <Link href="/services/visa-evaluation">Visa Evaluation</Link>
-                <Link href="/services/immigration-consultations">Immigration Consultations</Link>
-              </div>
-            </li>
-
             <li className={styles.visaCategoriesDropdown}>
-              <div className={styles.visaCategoriesMainLink}>
+              <div 
+                className={styles.visaCategoriesMainLink}
+                onMouseEnter={() => setIsVisaCategoriesOpen(true)}
+                onMouseLeave={() => setIsVisaCategoriesOpen(false)}
+              >
                 Visa Categories
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
                   <path d="M6 9L1 4h10z" />
                 </svg>
               </div>
-              <div className={styles.visaCategoriesMainMenu}>
+              <div 
+                className={`${styles.visaCategoriesMainMenu} ${isVisaCategoriesOpen ? styles.open : ""}`}
+                onMouseEnter={() => setIsVisaCategoriesOpen(true)}
+                onMouseLeave={() => setIsVisaCategoriesOpen(false)}
+              >
                 {visaCategories.map((visa, index) => (
                   <Link key={index} href={`/services/${visa.toLowerCase().replace(/\s+/g, "-")}`}>
                     {visa}
@@ -102,7 +97,7 @@ export default function Navbar() {
             </li>
             <li> 
               <Link href="/contact">
-              <button className={styles.ctaButton}>Request a Consultation</button> 
+                <button className={styles.ctaButton}>Request a Consultation</button> 
               </Link>
             </li>
           </ul>
@@ -138,26 +133,6 @@ export default function Navbar() {
         </div>
 
         <ul className={styles.sidebarLinks}>
-          <li>
-            <button
-              className={`${styles.sidebarServicesToggle} ${isMobileServicesOpen ? styles.open : ""}`}
-              onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-            >
-              Services
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
-                <path d="M6 9L1 4h10z" />
-              </svg>
-            </button>
-            <div className={`${styles.sidebarServicesMenu} ${isMobileServicesOpen ? styles.open : ""}`}>
-              <Link href="/services/visa-evaluation" onClick={() => setIsSidebarOpen(false)}>
-                Visa Evaluation
-              </Link>
-              <Link href="/services/immigration-consultations" onClick={() => setIsSidebarOpen(false)}>
-                Immigration Consultations
-              </Link>
-            </div>
-          </li>
-
           <li>
             <button
               className={`${styles.sidebarVisaCategoriesToggle} ${isMobileVisaCategoriesOpen ? styles.open : ""}`}

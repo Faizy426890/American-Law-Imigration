@@ -6,7 +6,7 @@ export const servicesData = {
     description: "Comprehensive visa eligibility assessment tailored to your unique immigration goals",
     shortDescription: "Determine your visa eligibility with expert guidance",
     image:
-      "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg", // person reviewing visa documents
+      "https://canadainntravelconsult.com/wp-content/uploads/2024/12/viza_10-1024x595.jpg", // person reviewing visa documents
     overview: `Our visa evaluation service provides a thorough analysis of your qualifications and circumstances to determine the most suitable visa category for your situation. Our experienced immigration attorneys will review your credentials, work experience, education, and family status to recommend the best pathway forward.`,
     features: [
       "Detailed eligibility assessment",
@@ -52,7 +52,7 @@ export const servicesData = {
     description: "Expert legal guidance for all your immigration questions and concerns",
     shortDescription: "Expert guidance for your immigration journey",
     image:
-      "https://images.pexels.com/photos/5877410/pexels-photo-5877410.jpeg", // attorney consultation
+      "https://canadainntravelconsult.com/wp-content/uploads/2024/12/viza_10-1024x595.jpg", // attorney consultation
     overview: `Our immigration consultations provide expert legal advice on complex immigration matters. Whether you're facing a specific challenge or need general guidance, our experienced attorneys are here to help you navigate the complexities of U.S. immigration law.`,
     features: [
       "One-on-one attorney consultation",
