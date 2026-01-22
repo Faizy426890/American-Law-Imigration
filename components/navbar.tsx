@@ -16,8 +16,6 @@ const visaCategories = [
   "Family-Based Immigration",
   "Adjustment of Status",
   "Consular Processing",
-  "Visa Evaluation", // Added from Services
-  "Immigration Consultations", // Added from Services
 ]
 
 export default function Navbar() {
@@ -71,7 +69,7 @@ export default function Navbar() {
                 onMouseEnter={() => setIsVisaCategoriesOpen(true)}
                 onMouseLeave={() => setIsVisaCategoriesOpen(false)}
               >
-                Visa Categories
+                Services
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
                   <path d="M6 9L1 4h10z" />
                 </svg>

@@ -157,7 +157,8 @@ export default async function ServicePage(props: ServicePageProps) {
                 <div className="space-y-5 mb-6">
                   <div className="pb-5 border-b border-gray-200">
                     <p className="text-sm text-gray-600 font-medium mb-1">Processing Timeline</p>
-                    <p className="text-lg font-semibold text-gray-900">{service.duration}</p>
+                    <p className="text-lg font-semibold text-gray-900">{service.AAAZZ
+                      }</p>
                   </div>
                 </div>
 
