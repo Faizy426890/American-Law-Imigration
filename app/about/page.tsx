@@ -213,15 +213,21 @@ const AboutSection = () => {
             Schedule a consultation with our experienced team today and take the first step toward securing your 
             future in the United States.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <button className="w-full sm:w-auto px-10 py-5 bg-gray-900 text-yellow-400 text-base md:text-lg font-bold rounded-full hover:bg-black hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-3">
-              Schedule Consultation
-              <span className="text-xl">→</span>
-            </button>
-            <button className="w-full sm:w-auto px-10 py-5 bg-white text-gray-900 text-base md:text-lg font-bold rounded-full border-3 border-gray-900 hover:bg-gray-900 hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider">
-              Contact Us
-            </button>
-          </div>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+  <a 
+    href="/contact" 
+    className="w-full sm:w-auto px-10 py-5 bg-gray-900 text-yellow-400 text-base md:text-lg font-bold rounded-full hover:bg-black hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider flex items-center justify-center gap-3 no-underline"
+  >
+    Schedule Consultation
+    <span className="text-xl">→</span>
+  </a>
+  <a 
+    href="/contact" 
+    className="w-full sm:w-auto px-10 py-5 bg-white text-gray-900 text-base md:text-lg font-bold rounded-full border-3 border-gray-900 hover:bg-gray-900 hover:text-white hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 uppercase tracking-wider no-underline"
+  >
+    Contact Us
+  </a>
+</div>
         </div>
       </div>
 

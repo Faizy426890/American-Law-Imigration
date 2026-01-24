@@ -125,15 +125,18 @@ export default function ImmigrationServicesPage() {
           </div>
 
           <div className={styles.ctaBanner}>
-            <div className={styles.ctaContent}>
-              <h2 className={styles.ctaTitle}>Ready to Start Your Immigration Journey?</h2>
-              <p className={styles.ctaText}>
-                Schedule a consultation today and let us guide you every step of the way.
-              </p>
-              <button className={styles.ctaButton}>
-                Schedule Consultation
-              </button>
-            </div>
+         <div className={styles.ctaContent}>
+  <h2 className={styles.ctaTitle}>Ready to Start Your Immigration Journey?</h2>
+  <p className={styles.ctaText}>
+    Schedule a consultation today and let us guide you every step of the way.
+  </p>
+  <a 
+    href="/contact" 
+    className={styles.ctaButton}
+  >
+    Schedule Consultation
+  </a>
+</div>
           </div>
         </div>
       </section>
