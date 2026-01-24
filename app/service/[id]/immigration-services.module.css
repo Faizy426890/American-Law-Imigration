@@ -1,0 +1,419 @@
+/* Page Wrapper */
+.pageWrapper {
+  width: 100%;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Visa Types Section */
+.visaTypesSection {
+  width: 100%;
+  padding: 60px 20px;
+  background: #fff;
+}
+
+.visaContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.visaGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 28px;
+  margin-bottom: 60px;
+}
+
+/* Visa Card */
+.visaCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.visaCard:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+}
+
+.visaCard.expanded {
+  grid-column: span 1;
+}
+
+/* Image Container */
+.visaImageContainer {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.visaImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.visaCard:hover .visaImage {
+  transform: scale(1.05);
+}
+
+.imageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  transition: opacity 0.3s ease;
+}
+
+.visaCard:hover .imageOverlay {
+  opacity: 0.5;
+}
+
+/* Card Content */
+.visaContent {
+  padding: 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.visaTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+.visaDescription {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 0 0 16px 0;
+  line-height: 1.6;
+}
+
+/* Services List */
+.servicesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.serviceItem {
+  font-size: 13px;
+  color: #374151;
+  padding-left: 16px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.serviceItem:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #3b82f6;
+  font-weight: bold;
+}
+
+/* CTA Banner */
+.ctaBanner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 48px 32px;
+  text-align: center;
+  color: white;
+}
+
+.ctaContent {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.ctaTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+.ctaText {
+  font-size: 16px;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.ctaButton {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ctaButton:hover {
+  background: #f3f4f6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Detail Page Styles */
+.detailPageWrapper {
+  width: 100%;
+  background: #f9fafb;
+  min-height: 100vh;
+}
+
+.detailHeader {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 60px 20px;
+}
+
+.detailHeaderContent {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 24px;
+}
+
+.backButton:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-4px);
+}
+
+.detailTitle {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.detailSubtitle {
+  font-size: 18px;
+  margin: 0;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+.detailContent {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.detailImageSection {
+  margin-bottom: 48px;
+}
+
+.detailImage {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.detailSection {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.detailSectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 20px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #667eea;
+}
+
+.detailSectionContent {
+  font-size: 16px;
+  color: #4b5563;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.servicesDetailList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.serviceDetailItem {
+  background: #f0f4ff;
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  font-size: 15px;
+  color: #374151;
+  line-height: 1.6;
+  transition: all 0.3s ease;
+}
+
+.serviceDetailItem:hover {
+  background: #e8ecff;
+  transform: translateX(4px);
+}
+
+.ctaDetailBanner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 48px 32px;
+  text-align: center;
+  color: white;
+}
+
+.ctaDetailTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin: 0 0 16px 0;
+  line-height: 1.3;
+}
+
+.ctaDetailText {
+  font-size: 16px;
+  margin: 0 0 24px 0;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.ctaDetailButton {
+  background: white;
+  color: #667eea;
+  border: none;
+  padding: 12px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.ctaDetailButton:hover {
+  background: #f3f4f6;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .visaGrid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .detailTitle {
+    font-size: 28px;
+  }
+
+  .detailImage {
+    height: 250px;
+  }
+
+  .detailSection {
+    padding: 24px;
+  }
+
+  .detailSectionTitle {
+    font-size: 20px;
+  }
+
+  .ctaBanner,
+  .ctaDetailBanner {
+    padding: 32px 20px;
+  }
+
+  .ctaTitle,
+  .ctaDetailTitle {
+    font-size: 20px;
+  }
+
+  .servicesDetailList {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .visaTypesSection {
+    padding: 40px 12px;
+  }
+
+  .detailHeader {
+    padding: 40px 12px;
+  }
+
+  .detailContent {
+    padding: 30px 12px;
+  }
+
+  .detailTitle {
+    font-size: 22px;
+  }
+
+  .detailImage {
+    height: 200px;
+  }
+
+  .detailSection {
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+
+  .detailSectionTitle {
+    font-size: 18px;
+  }
+
+  .detailSectionContent {
+    font-size: 14px;
+  }
+
+  .serviceDetailItem {
+    padding: 16px;
+    font-size: 14px;
+  }
+}
