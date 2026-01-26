@@ -1,18 +1,10 @@
 "use client"
-import { useState } from 'react' 
+import { useState, useEffect } from 'react' 
 import Navbar from '@/components/navbar'
 import Footer from '@/components/footer'
+
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  })
-  
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isFormLoading, setIsFormLoading] = useState(true)
   const [toast, setToast] = useState({ show: false, type: '', message: '' })
 
   const showToast = (type, message) => {
@@ -22,55 +14,18 @@ export default function ContactPage() {
     }, 5000)
   }
 
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: `${formData.firstName} ${formData.lastName}`,
-          email: formData.email,
-          phone: formData.phone,
-          service: formData.service,
-          message: formData.message,
-        }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        throw new Error(data.message || "Something went wrong")
+  // Handle form messages from iframe (optional)
+  useEffect(() => {
+    const handleMessage = (event) => {
+      // Handle form submission messages from Lawmatics if needed
+      if (event.data && event.data.type === 'formSubmission') {
+        showToast('success', 'Message sent successfully! We\'ll get back to you soon.')
       }
-
-      showToast('success', 'Message sent successfully! We\'ll get back to you soon.')
-      
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        service: "",
-        message: "",
-      })
-    } catch (error) {
-      console.error(error)
-      showToast('error', 'Failed to send message. Please try again.')
-    } finally {
-      setIsSubmitting(false)
     }
-  }
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
-  }
+    
+    window.addEventListener('message', handleMessage)
+    return () => window.removeEventListener('message', handleMessage)
+  }, [])
 
   return (  
     <> 
@@ -141,12 +96,21 @@ export default function ContactPage() {
       {/* Contact Section */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12">
-          {/* Contact Form - 7 columns */}
+          {/* Lawmatics Form - 7 columns */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl shadow-2xl border border-gray-200 p-10 md:p-12 relative">
-              {/* Loading Overlay */}
-              {isSubmitting && (
-                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm rounded-3xl z-10 flex items-center justify-center">
+            <div className="rounded-3xl shadow-2xl border border-gray-200 overflow-hidden relative">
+              {/* Form Header */}
+              <div className="bg-black text-white p-8 border-b border-gray-800">
+                <div className="flex items-center gap-4 mb-2">
+                  <div className="w-8 h-1 bg-yellow-400 rounded-full"></div>
+                  <h2 className="text-3xl md:text-4xl font-black">Send Us a Message</h2>
+                </div>
+                <p className="text-gray-300">Fill out the form below and we'll get back to you within 24 hours</p>
+              </div>
+              
+              {/* Form Loading State */}
+              {isFormLoading && (
+                <div className="absolute inset-0 bg-white/95 backdrop-blur-sm z-10 flex items-center justify-center">
                   <div className="text-center">
                     <div className="relative w-24 h-24 mx-auto mb-6">
                       <div className="absolute inset-0 border-4 border-gray-200 rounded-full"></div>
@@ -154,121 +118,43 @@ export default function ContactPage() {
                       <div className="absolute inset-3 border-4 border-gray-200 rounded-full"></div>
                       <div className="absolute inset-3 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin" style={{ animationDirection: 'reverse', animationDuration: '1s' }}></div>
                     </div>
-                    <h3 className="text-2xl font-black text-gray-900 mb-2">Sending Your Message</h3>
-                    <p className="text-gray-600">Please wait while we process your request...</p>
-                    <div className="flex items-center justify-center gap-1 mt-4">
-                      <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                      <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                      <div className="w-2 h-2 bg-black rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-                    </div>
+                    <h3 className="text-2xl font-black text-gray-900 mb-2">Loading Form</h3>
+                    <p className="text-gray-600">Please wait while we load the contact form...</p>
                   </div>
                 </div>
               )}
 
-              <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-1 bg-black rounded-full"></div>
-                <h2 className="text-3xl md:text-4xl font-black text-gray-900">Send Us a Message</h2>
+              {/* Lawmatics Form Embed */}
+              <div className="relative h-[800px] bg-white">
+                <iframe
+                  src="https://app.lawmatics.com/forms/share/32387904-a3f0-49d3-b4e0-4c919b3a6682"
+                  width="100%"
+                  height="100%"
+                  frameBorder="0"
+                  style={{ 
+                    border: 'none',
+                    backgroundColor: 'transparent'
+                  }}
+                  title="Contact Form"
+                  loading="lazy"
+                  onLoad={() => setIsFormLoading(false)}
+                  onError={() => {
+                    setIsFormLoading(false)
+                    showToast('error', 'Failed to load form. Please refresh the page.')
+                  }}
+                />
+                
+                {/* Gradient overlays for better blending */}
+                <div className="absolute top-0 left-0 right-0 h-4 bg-gradient-to-b from-white to-transparent pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2">First Name</label>
-                    <input 
-                      type="text"
-                      name="firstName"
-                      value={formData.firstName}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-black focus:bg-white focus:outline-none transition-all duration-300"
-                      placeholder="John"
-                    />
-                  </div>
-                  
-                  <div>
-                    <label className="block text-sm font-bold text-gray-900 mb-2">Last Name</label>
-                    <input 
-                      type="text"
-                      name="lastName"
-                      value={formData.lastName}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-black focus:bg-white focus:outline-none transition-all duration-300"
-                      placeholder="Doe"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Email Address</label>
-                  <input 
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-black focus:bg-white focus:outline-none transition-all duration-300"
-                    placeholder="john.doe@example.com"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-800 mb-2">Phone Number</label>
-                  <input 
-                    type="tel"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-black focus:bg-white focus:outline-none transition-all duration-300"
-                    placeholder="+1 (555) 000-0000"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Service Interested In</label>
-                  <select 
-                    name="service"
-                    value={formData.service}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-black focus:bg-white focus:outline-none transition-all duration-300 appearance-none cursor-pointer"
-                  >
-                    <option value="">Select a service</option>
-                    <option value="visa-evaluation">Visa Evaluation</option>
-                    <option value="h-1b-visa">H-1B Visa</option>
-                    <option value="l-1-visa">L-1 Visa</option>
-                    <option value="o-1-visa">O-1 Visa</option>
-                    <option value="e-2-visa">E-2 Visa</option>
-                    <option value="eb-1-green-card">EB-1 Green Card</option>
-                    <option value="eb-2-niw">EB-2 NIW</option>
-                    <option value="eb-3-green-card">EB-3 Green Card</option>
-                    <option value="family-based-immigration">Family-Based Immigration</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-bold text-gray-900 mb-2">Message</label>
-                  <textarea 
-                    name="message"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full px-5 py-4 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-black focus:bg-white focus:outline-none transition-all duration-300 resize-none"
-                    placeholder="Tell us about your immigration needs..."
-                  ></textarea>
-                </div>
-
-                <button 
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full py-5 bg-black hover:bg-gray-900 text-white font-black text-lg rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                </button>
-              </form>
+              {/* Form Footer */}
+              <div className="bg-gray-50 border-t border-gray-200 p-6 text-center">
+                <p className="text-sm text-gray-600">
+                  <span className="font-bold">Note:</span> All information submitted is secure and confidential
+                </p>
+              </div>
             </div>
           </div>
 
@@ -276,7 +162,10 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             {/* Office Info */}
             <div className="bg-black rounded-3xl shadow-2xl p-8 text-white">
-              <h3 className="text-2xl font-black mb-6">Contact Information</h3>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-1 bg-yellow-400 rounded-full"></div>
+                <h3 className="text-2xl font-black">Contact Information</h3>
+              </div>
               
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
@@ -290,7 +179,7 @@ export default function ContactPage() {
                     <p className="font-bold mb-1">Office Address</p>
                     <p className="text-gray-400 text-sm leading-relaxed">
                       555 Republic Dr Floor 2, Suite 214<br />
-                       Plano, TX 75074,<br />
+                      Plano, TX 75074<br />
                       United States
                     </p>
                   </div>
@@ -326,19 +215,22 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
-                <div>
-  <p className="font-bold mb-1">Office Hours</p>
-  <p className="text-gray-400 text-sm leading-relaxed">
-    Open 24 Hours
-  </p>
-</div>
+                  <div>
+                    <p className="font-bold mb-1">Office Hours</p>
+                    <p className="text-gray-400 text-sm leading-relaxed">
+                      Open 24 Hours
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
 
             {/* Why Choose Us */}
             <div className="bg-white rounded-3xl shadow-xl border border-gray-200 p-8">
-              <h4 className="text-xl font-black text-gray-900 mb-6">Why Choose Us</h4>
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-10 h-1 bg-black rounded-full"></div>
+                <h4 className="text-xl font-black text-gray-900">Why Choose Us</h4>
+              </div>
               <div className="space-y-5">
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
@@ -391,7 +283,30 @@ export default function ContactPage() {
             </div>
 
             {/* Emergency Contact */}
-         
+            <div className="bg-yellow-50 rounded-3xl border-2 border-yellow-200 p-8">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-yellow-400 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <svg className="w-6 h-6 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-xl font-black text-gray-900 mb-2">Need Immediate Help?</h4>
+                  <p className="text-gray-700 text-sm mb-4">
+                    For urgent immigration matters, call us directly. We're here to help you 24/7.
+                  </p>
+                  <a 
+                    href="tel:+14692006508" 
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-black hover:bg-gray-900 text-white font-bold text-sm rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    Call Now: +1 (469) 200-6508
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -473,7 +388,8 @@ export default function ContactPage() {
                     className="pointer-events-auto px-6 py-3 bg-black hover:bg-gray-900 text-white font-bold text-sm rounded-xl shadow-lg transform hover:scale-105 transition-all duration-300"
                   >
                     Get Directions
-                  </a>                </div>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -540,55 +456,52 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
- 
-
       {/* Footer */}
-   <footer className="bg-white border-t border-gray-200 py-12">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex flex-col md:flex-row justify-between items-center">
-      <div className="mb-6 md:mb-0">
-        <div className="text-2xl font-black text-gray-900 mb-2">
-          American Immigration Lawyers
+      <footer className="bg-white border-t border-gray-200 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <div className="mb-6 md:mb-0">
+              <div className="text-2xl font-black text-gray-900 mb-2">
+                American Immigration Lawyers
+              </div>
+              <p className="text-gray-600 text-sm">
+                Your trusted partner in immigration law 
+              </p>
+            </div>
+            
+            <div className="flex items-center gap-6">
+              <a 
+                href="https://www.facebook.com/AmericanImmigrationLawyers" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-black transition-colors"
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              
+              <a 
+                href="https://www.instagram.com/american.immigration.lawyers/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-black transition-colors"
+              >
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-600 text-sm">
+            <p>© {new Date().getFullYear()} American Immigration Lawyers. All rights reserved.</p>
+            <p className="mt-2">
+              This website is for informational purposes only. Contacting us does not create an attorney-client relationship.
+            </p>
+          </div>
         </div>
-        <p className="text-gray-600 text-sm">
-          Your trusted partner in immigration law 
-        </p>
-      </div>
-      
-      <div className="flex items-center gap-6">
-        <a 
-          href="https://www.facebook.com/AmericanImmigrationLawyers" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-black transition-colors"
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-          </svg>
-        </a>
-       
-        <a 
-          href="https://www.instagram.com/american.immigration.lawyers/" 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="text-gray-600 hover:text-black transition-colors"
-        >
-          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-    
-    <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-600 text-sm">
-      <p>© {new Date().getFullYear()} American Immigration Lawyers. All rights reserved.</p>
-      <p className="mt-2">
-        This website is for informational purposes only. Contacting us does not create an attorney-client relationship.
-      </p>
-    </div>
-  </div>
-</footer>
+      </footer>
     </main>  
     <Footer/>
     </>

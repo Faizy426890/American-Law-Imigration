@@ -40,6 +40,15 @@ export default function Navbar() {
     }
   }, [isSidebarOpen])
 
+  const handlePaymentClick = () => {
+    window.open("https://secure.lawpay.com/pages/khanlawpllc1/ail", "_blank")
+  }
+
+  const handleMobilePaymentClick = () => {
+    setIsSidebarOpen(false)
+    window.open("https://secure.lawpay.com/pages/khanlawpllc1/ail", "_blank")
+  }
+
   return (
     <>
       {/* Overlay */}
@@ -93,7 +102,21 @@ export default function Navbar() {
             <li>
               <Link href="/contact">Contact</Link>
             </li>
-            <li> 
+            
+            {/* Desktop Buttons */}
+            <li className={styles.desktopButtons}>
+              <button 
+                className={styles.paymentButton}
+                onClick={handlePaymentClick}
+              >
+                <span className={styles.paymentIcon}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M12 1v3M12 20v3M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h3M20 12h3M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+                  </svg>
+                </span>
+                Make Payment
+              </button>
+              
               <Link href="/contact">
                 <button className={styles.ctaButton}>Request a Consultation</button> 
               </Link>
@@ -136,7 +159,7 @@ export default function Navbar() {
               className={`${styles.sidebarVisaCategoriesToggle} ${isMobileVisaCategoriesOpen ? styles.open : ""}`}
               onClick={() => setIsMobileVisaCategoriesOpen(!isMobileVisaCategoriesOpen)}
             >
-              Visa Categories
+              Services
               <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor">
                 <path d="M6 9L1 4h10z" />
               </svg>
@@ -166,10 +189,23 @@ export default function Navbar() {
           </li>
         </ul>
 
-        <div className={styles.sidebarCta}>
-          <button className={styles.ctaButton} onClick={() => setIsSidebarOpen(false)}>
-            Request a Consultation
+        {/* Mobile Buttons */}
+        <div className={styles.sidebarButtons}>
+          <button 
+            className={styles.mobilePaymentButton}
+            onClick={handleMobilePaymentClick}
+          >
+            <span className={styles.paymentIcon}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 1v3M12 20v3M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h3M20 12h3M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+              </svg>
+            </span>
+            Make Payment
           </button>
+          
+          <Link href="/contact" onClick={() => setIsSidebarOpen(false)}>
+            <button className={styles.ctaButton}>Request a Consultation</button> 
+          </Link>
         </div>
       </div>
     </>
