@@ -5,53 +5,88 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContainer}>
         <div className={styles.footerGrid}>
+          
+          <div className={styles.footerBrand}>
+            <div className={styles.logoContainer}>
+              <h2 className={styles.logo}>Immigration Law</h2>
+              <span className={styles.logoSubtitle}>Expert Legal Counsel</span>
+            </div>
+            <p className={styles.brandDescription}>
+              Providing expert immigration legal services with compassion and dedication 
+              for over 15 years.
+            </p>
+            <div className={styles.socialLinks}>
+              <a 
+                href="https://www.facebook.com/AmericanImmigrationLawyers" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                aria-label="Facebook"
+              >
+                <svg className={styles.socialIcon} viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a 
+                href="https://www.instagram.com/american.immigration.lawyers/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className={styles.socialLink}
+                aria-label="Instagram"
+              >
+                <svg className={styles.socialIcon} viewBox="0 0 24 24">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+              </a>
+            </div>
+          </div>
+
           <div className={styles.footerColumn}>
-            <h3>About Us</h3>
+            <h3 className={styles.columnTitle}>Services</h3>
             <ul className={styles.footerLinks}>
-              <li><a href="/our-story">Our Story</a></li>
-              <li><a href="/attorneys">Our Attorneys</a></li>
-              <li><a href="/testimonials">Testimonials</a></li>
-              <li><a href="/careers">Careers</a></li>
+              <li><a href="/service/work-visas" className={styles.footerLink}>Work Visas</a></li>
+              <li><a href="/service/green-card" className={styles.footerLink}>Green Cards</a></li>
+              <li><a href="/service/citizenship" className={styles.footerLink}>Citizenship</a></li>
+              <li><a href="/service/business-immigration" className={styles.footerLink}>Business Immigration</a></li>
             </ul>
           </div>
 
           <div className={styles.footerColumn}>
-            <h3>Services</h3>
+            <h3 className={styles.columnTitle}>Contact</h3>
             <ul className={styles.footerLinks}>
-              <li><a href="/visas">Work Visas</a></li>
-              <li><a href="/green-cards">Green Cards</a></li>
-              <li><a href="/citizenship">Citizenship</a></li>
-              <li><a href="/business-immigration">Business Immigration</a></li>
-            </ul>
-          </div>
-
-          <div className={styles.footerColumn}>
-            <h3>Resources</h3>
-            <ul className={styles.footerLinks}>
-              <li><a href="/blog">Blog</a></li>
-              <li><a href="/guides">Immigration Guides</a></li>
-              <li><a href="/faq">FAQ</a></li>
-              <li><a href="/case-studies">Case Studies</a></li>
-            </ul>
-          </div>
-
-          <div className={styles.footerColumn}>
-            <h3>Contact</h3>
-            <ul className={styles.footerLinks}>
-              <li><a href="/consultation">Schedule Consultation</a></li>
-              <li><a href="/contact">Contact Us</a></li>
-              <li><a href="/locations">Office Locations</a></li>
-              <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+              <li><a href="/contact" className={styles.footerLink}>Schedule Consultation</a></li>
+              <li><a href="/contact" className={styles.footerLink}>Contact Us</a></li>
+              <li><a href="/locations" className={styles.footerLink}>Office Locations</a></li>
+              <li className={styles.contactItem}>
+                <svg className={styles.contactIcon} viewBox="0 0 24 24">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"></path>
+                </svg>
+                <a href="tel:+14692006508" className={styles.footerLink}>
+                  +1 (469) 200-6508
+                </a>
+              </li>
+              <li className={styles.contactItem}>
+                <svg className={styles.contactIcon} viewBox="0 0 24 24">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+                <a href="mailto:info@immigrationfirm.com" className={styles.footerLink}>info@immigrationfirm.com</a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className={styles.footerBottom}>
-          <p>
-            © 2026 Immigration Law Firm. All rights reserved. |
-            <a href="/privacy-policy"> Privacy Policy</a> |
-            <a href="/terms"> Terms of Service</a>
+          <p className={styles.copyright}>
+            © 2026 Immigration Law Firm. All rights reserved.
           </p>
+          <div className={styles.legalLinks}>
+            <a href="/privacy-policy" className={styles.legalLink}>Privacy Policy</a>
+            <span className={styles.divider}>|</span>
+            <a href="/terms" className={styles.legalLink}>Terms of Service</a>
+          </div>
         </div>
       </div>
     </footer>
