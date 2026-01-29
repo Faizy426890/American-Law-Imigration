@@ -305,7 +305,11 @@ export default function ServiceDetailPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <Link href="/contact">
-                               <button className={styles.ctaButton}>Request a Consultation</button> 
+<button
+  className="bg-[#f5bc00] text-black px-8 py-4 rounded-xl font-semibold text-[15px] transition-all duration-300 ease-in-out shadow-[0_4px_12px_rgba(37,99,235,0.25)] cursor-pointer relative overflow-hidden hover:scale-105 hover:shadow-[0_8px_20px_rgba(37,99,235,0.35)] active:scale-95"
+>
+  Request a Consultation
+</button>
                              </Link>
               </div>
             </div>
