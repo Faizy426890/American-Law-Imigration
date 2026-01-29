@@ -16,7 +16,7 @@ export default function LogoLinks() {
             rel="noopener noreferrer"
             className="group"
           >
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center h-64 border-2 border-transparent hover:border-blue-400 transform hover:-translate-y-2">
+            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all overflow-hidden duration-300 p-8 flex flex-col items-center justify-center h-64 border-2 border-transparent hover:border-blue-400 transform hover:-translate-y-2">
               <div className="relative w-full h-32 mb-4">
                 <Image
                   src="https://res.cloudinary.com/diml90c1y/image/upload/v1769642803/Logo-3_wzdfw6.avif"
@@ -50,7 +50,7 @@ export default function LogoLinks() {
             rel="noopener noreferrer"
             className="group"
           >
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center h-64 border-2 border-transparent hover:border-blue-400 transform hover:-translate-y-2">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center h-64 border-2 border-transparent hover:border-blue-400 transform hover:-translate-y-2">
               <div className="relative w-full h-32 mb-4">
                 <Image
                   src="https://res.cloudinary.com/diml90c1y/image/upload/v1769642794/Logo-2_dl8wal.avif"
@@ -84,7 +84,7 @@ export default function LogoLinks() {
             rel="noopener noreferrer"
             className="group"
           >
-            <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center h-64 border-2 border-transparent hover:border-blue-400 transform hover:-translate-y-2 overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 p-8 flex flex-col items-center justify-center h-64 border-2 border-transparent hover:border-blue-400 transform hover:-translate-y-2 overflow-hidden">
               <div className="w-42 h-32 mb-4 flex items-center justify-center">
                 <iframe 
                   className="w-full h-full border-0 pointer-events-none"
