@@ -43,7 +43,7 @@ const AboutSection = () => {
             <p>
               At our firm, we believe that everyone deserves a chance to build a better future in the United States. 
               Our mission is to provide exceptional legal representation and personalized guidance throughout every 
-              step of the immigration process. With over 15 years of combined experience, we have successfully helped 
+              step of the immigration process. With over many years of combined experience, we have successfully helped 
               thousands of clients achieve their American dream.
             </p>
             <p>
@@ -174,7 +174,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           <div className="bg-white p-8 md:p-10 rounded-3xl shadow-lg border-3 border-gray-100 hover:border-yellow-400 hover:shadow-2xl hover:shadow-yellow-400/20 hover:-translate-y-3 transition-all duration-500">
             <div className="text-5xl md:text-6xl mb-6">⚖️</div>
-            <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-4">Expert Legal Guidance</h3>
+            <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-4"> Legal Guidance</h3>
             <p className="text-gray-600 leading-relaxed">
               Our attorneys stay current with the latest immigration laws and policies to provide you with accurate, 
               reliable legal advice.

@@ -6,15 +6,7 @@ export default function LogoLinks() {
     <div className="max-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center p-8">
       <div className="max-w-4xl w-full">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Professional Legal Services
-          </h1>
-          <p className="text-lg text-gray-600">
-            Connect with verified legal profiles
-          </p>
-        </div>
-
+       
         {/* Logos Container */}
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {/* AILA Logo Card */}
@@ -120,9 +112,7 @@ export default function LogoLinks() {
         </div>
 
         {/* Footer Note */}
-        <div className="text-center mt-12 text-gray-500 text-sm">
-          <p>Click on any logo to visit the respective profile page</p>
-        </div>
+       
       </div>
     </div>
   );
