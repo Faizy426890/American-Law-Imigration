@@ -100,20 +100,7 @@ const AboutSection = () => {
               of successful cases.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="px-5 py-2.5 bg-white text-yellow-700 text-sm font-semibold rounded-full border-2 border-yellow-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                Family Immigration
-              </span>
-              <span className="px-5 py-2.5 bg-white text-yellow-700 text-sm font-semibold rounded-full border-2 border-yellow-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                Employment Visas
-              </span>
-              <span className="px-5 py-2.5 bg-white text-yellow-700 text-sm font-semibold rounded-full border-2 border-yellow-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                Deportation Defense
-              </span>
-              <span className="px-5 py-2.5 bg-white text-yellow-700 text-sm font-semibold rounded-full border-2 border-yellow-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                Citizenship
-              </span>
-            </div>
+        
           </div>
 
           {/* Team Member 2 - Zafar Iqbal */}
@@ -147,20 +134,7 @@ const AboutSection = () => {
               professionals establish themselves in the United States.
             </p>
 
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="px-5 py-2.5 bg-white text-yellow-700 text-sm font-semibold rounded-full border-2 border-yellow-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                Business Immigration
-              </span>
-              <span className="px-5 py-2.5 bg-white text-yellow-700 text-sm font-semibold rounded-full border-2 border-yellow-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                Investor Visas
-              </span>
-              <span className="px-5 py-2.5 bg-white text-yellow-700 text-sm font-semibold rounded-full border-2 border-yellow-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                Student Visas
-              </span>
-              <span className="px-5 py-2.5 bg-white text-yellow-700 text-sm font-semibold rounded-full border-2 border-yellow-400 hover:bg-gradient-to-r hover:from-yellow-400 hover:to-yellow-500 hover:text-white hover:-translate-y-1 transition-all duration-300">
-                Documentation
-              </span>
-            </div>
+           
           </div>
         </div>
       </div>

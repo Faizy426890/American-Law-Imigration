@@ -2,7 +2,8 @@
 import React from 'react';
 import { Phone, Mail, ChevronRight, Clock, CheckCircle, Users, Award, CreditCard, Briefcase, FileText, Home, Building2, Flag } from 'lucide-react';
 import Navbar from '@/components/navbar';
-import Footer from '@/components/footer';
+import Footer from '@/components/footer'; 
+import Link from 'next/link';
 import { useParams } from 'next/navigation';
 
 const servicesData = {
@@ -303,20 +304,9 @@ export default function ServiceDetailPage() {
                 Our experienced immigration attorneys are ready to guide you through every step of your immigration journey with personalized attention and proven expertise.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                <a 
-                  href="tel:+14692006508" 
-                  className="px-10 py-5 bg-white text-gray-900 rounded-xl hover:bg-gray-100 transition-all shadow-xl hover:shadow-2xl font-bold inline-flex items-center group"
-                >
-                  <Phone className="mr-3 h-6 w-6 group-hover:rotate-12 transition-transform" />
-                  Call Us Now
-                </a>
-                <a 
-                  href="mailto:info@khanlegalgroup.com" 
-                  className="px-10 py-5 bg-transparent border-2 border-white text-white rounded-xl hover:bg-white/10 backdrop-blur-sm transition-all font-bold inline-flex items-center group"
-                >
-                  <Mail className="mr-3 h-6 w-6 group-hover:scale-110 transition-transform" />
-                  Email Us
-                </a>
+                <Link href="/contact">
+                               <button className={styles.ctaButton}>Request a Consultation</button> 
+                             </Link>
               </div>
             </div>
           </div>
