@@ -9,11 +9,10 @@ export default function Footer() {
           <div className={styles.footerBrand}>
             <div className={styles.logoContainer}>
               <h2 className={styles.logo}>Immigration Law</h2>
-              <span className={styles.logoSubtitle}>Expert Legal Counsel</span>
+              <span className={styles.logoSubtitle}> Legal Counsel</span>
             </div>
             <p className={styles.brandDescription}>
-              Providing expert immigration legal services with compassion and dedication 
-              for over 15 years.
+              Providing immigration legal services with compassion and dedication.
             </p>
             <div className={styles.socialLinks}>
               <a 
@@ -27,19 +26,30 @@ export default function Footer() {
                   <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
                 </svg>
               </a>
-              <a 
-                href="https://www.instagram.com/american.immigration.lawyers/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className={styles.socialLink}
-                aria-label="Instagram"
-              >
-                <svg className={styles.socialIcon} viewBox="0 0 24 24">
-                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                </svg>
-              </a>
+            <a
+  href="https://www.instagram.com/american.immigration.lawyers/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className={styles.socialLink}
+  aria-label="Instagram"
+>
+ <svg
+  className={styles.socialIcon}
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+>
+  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" />
+  <circle cx="12" cy="12" r="3.5" fill="none" />
+  <circle cx="17.5" cy="6.5" r="0.8" fill="currentColor" />
+</svg>
+
+</a>
+
             </div>
           </div>
 
@@ -72,7 +82,7 @@ export default function Footer() {
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                   <polyline points="22,6 12,13 2,6"></polyline>
                 </svg>
-                <a href="mailto:info@immigrationfirm.com" className={styles.footerLink}>info@immigrationfirm.com</a>
+                <a href="mailto:info@khanlegalgroup.com" className={styles.footerLink}>info@khanlegalgroup.com</a>
               </li>
             </ul>
           </div>

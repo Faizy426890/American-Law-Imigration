@@ -93,8 +93,8 @@ const AboutSection = () => {
             </div>
 
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8 text-center md:text-left">
-              Aman Khan is a distinguished immigration attorney with over 15 years of experience representing 
-              clients in complex immigration matters. A graduate of Harvard Law School, Aman has built a 
+              Aman Khan is a distinguished immigration attorney with experience of representing 
+              clients in complex immigration matters. A graduate of Law School, Aman has built a 
               reputation for excellence in family-based immigration, employment visas, and deportation defense. 
               His client-centered approach and deep understanding of immigration law have resulted in thousands 
               of successful cases.
@@ -140,7 +140,7 @@ const AboutSection = () => {
             </div>
 
             <p className="text-gray-600 text-base md:text-lg leading-relaxed mb-8 text-center md:text-left">
-              Zafar Iqbal brings over a decade of specialized experience in immigration consulting and case 
+              Zafar Iqbal brings of specialized experience in immigration consulting and case 
               management. With extensive knowledge of visa procedures and documentation requirements, Zafar 
               ensures that every application is meticulously prepared and strategically positioned for success. 
               His expertise in business immigration and investor visas has helped numerous entrepreneurs and 

@@ -123,6 +123,19 @@ export default function Navbar() {
             </li>
           </ul>
 
+          {/* Mobile Payment Button - visible in navbar */}
+          <button 
+            className={styles.mobileNavPaymentButton}
+            onClick={handlePaymentClick}
+          >
+            <span className={styles.paymentIcon}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M12 1v3M12 20v3M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h3M20 12h3M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
+              </svg>
+            </span> 
+                Payment
+          </button>
+
           <button
             className={`${styles.menuToggle} ${isSidebarOpen ? styles.active : ""}`}
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
@@ -189,20 +202,8 @@ export default function Navbar() {
           </li>
         </ul>
 
-        {/* Mobile Buttons */}
+        {/* Mobile Sidebar Button - Only CTA now */}
         <div className={styles.sidebarButtons}>
-          <button 
-            className={styles.mobilePaymentButton}
-            onClick={handleMobilePaymentClick}
-          >
-            <span className={styles.paymentIcon}>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M12 1v3M12 20v3M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h3M20 12h3M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" />
-              </svg>
-            </span>
-            Make Payment
-          </button>
-          
           <Link href="/contact" onClick={() => setIsSidebarOpen(false)}>
             <button className={styles.ctaButton}>Request a Consultation</button> 
           </Link>

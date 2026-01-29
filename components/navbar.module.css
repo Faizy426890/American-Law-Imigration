@@ -511,3 +511,57 @@
     display: none;
   }
 }
+/* Add this to your existing navbar.module.css file */
+
+/* Mobile Payment Button in Navbar */
+.mobileNavPaymentButton {
+  display: none;
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(30, 58, 138, 0.3);
+}
+
+.mobileNavPaymentButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 58, 138, 0.4);
+}
+
+.mobileNavPaymentButton:active {
+  transform: translateY(0);
+}
+
+.mobileNavPaymentButton .paymentIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Show mobile payment button on mobile screens */
+@media (max-width: 968px) {
+  .mobileNavPaymentButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-right: 12px;
+  }
+  
+  /* Remove the payment button from mobile sidebar */
+  .mobilePaymentButton {
+    display: none;
+  }
+}
+
+/* Adjust nav container spacing for mobile */
+@media (max-width: 968px) {
+  .navContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+}

@@ -1,5 +1,5 @@
 .footer {
-  background: linear-gradient(135deg, #1a365d 0%, #2d3748 100%);
+  background: linear-gradient(135deg, #000000 0%, #0c0f13 100%);
   color: #e2e8f0;
   padding: 4rem 0 2rem;
   position: relative;
@@ -105,7 +105,7 @@
 .socialIcon {
   width: 20px;
   height: 20px;
-  fill: white;
+  fill: rgb(255, 255, 255);
 }
 
 .footerColumn {

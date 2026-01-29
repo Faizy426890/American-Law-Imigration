@@ -239,7 +239,7 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div>
-                    <p className="font-bold text-gray-900 mb-1">Expert Legal Team</p>
+                    <p className="font-bold text-gray-900 mb-1"> Legal Team</p>
                     <p className="text-sm text-gray-600">Experienced attorneys with proven track records</p>
                   </div>
                 </div>

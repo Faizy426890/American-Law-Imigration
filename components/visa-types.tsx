@@ -81,7 +81,7 @@ export default function ImmigrationServicesPage() {
       id: "green-card",
       title: "Green Card Services",
       description: "For individuals seeking permanent residency in the United States.",
-      image: "https://img.freepik.com/free-photo/medium-shot-woman-working-as-travel-agent_23-2150455603.jpg",
+      image: "https://res.cloudinary.com/diml90c1y/image/upload/v1767744143/consultants-making-a-plan-8d8hudqwednxzxst_hvxl7a.jpg",
       services: [
         "Employment-Based Green Cards",
         "Family-Based Green Cards",

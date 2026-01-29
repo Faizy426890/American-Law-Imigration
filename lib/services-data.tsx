@@ -180,7 +180,7 @@ export const servicesData = {
     description: "Green card for individuals with extraordinary ability",
     shortDescription: "Permanent residence for exceptional talent",
     image:
-      "https://res.cloudinary.com/diml90c1y/image/upload/v1760774260/9ul472v5hb.jpg", // green card concept
+      "https://res.cloudinary.com/diml90c1y/image/upload/v1767744143/consultants-making-a-plan-8d8hudqwednxzxst_hvxl7a.jpg", // green card concept
     overview: `The EB-1 green card is available to individuals with extraordinary ability in sciences, business, education, or arts. This category offers a direct path to permanent residence without labor certification or employment offer requirements.`,
     features: [
       "Self-petition option (EB-1C)",

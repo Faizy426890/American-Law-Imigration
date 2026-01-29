@@ -42,7 +42,7 @@ const servicesData = {
   },
   "labor-certification": {
     title: "Labor Certification (PERM)",
-    description: "Expert guidance through the PERM labor certification process for employment-based green cards.",
+    description: "Guidance through the PERM labor certification process for employment-based green cards.",
     image: "https://dm-consultant.in/wp-content/uploads/2023/11/Image-18.jpg",
     overview: "PERM (Program Electronic Review Management) labor certification is a critical step for employers seeking to sponsor foreign workers for permanent residency. Our team guides employers through recruitment requirements, prevailing wage determinations, and Department of Labor compliance.",
     details: [
@@ -113,7 +113,7 @@ const servicesData = {
   },
   "green-card": {
     title: "Green Card Services",
-    description: "Expert guidance for all paths to U.S. permanent residency (green card).",
+    description: "Guidance for all paths to U.S. permanent residency (green card).",
     image: "https://img.freepik.com/free-photo/medium-shot-woman-working-as-travel-agent_23-2150455603.jpg",
     overview: "Green card sponsorship provides permanent residency status, allowing individuals to live, work, and study permanently in the United States. We handle all employment-based, family-based, diversity, and special visa programs.",
     details: [
